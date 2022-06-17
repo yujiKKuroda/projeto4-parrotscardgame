@@ -15,7 +15,7 @@ body {
 }
 
 .titulo h1 {
-    margin: 52px 50px 58px 50px;
+    margin: 52px 50px 41px 50px;
     text-align: center;
     font-family: 'Roboto', sans-serif;
     font-size: 56px;
@@ -24,13 +24,16 @@ body {
 }
 
 .tabuleiro {
-    margin: 0 109px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
 }
 
 .carta {
     width: 117px;
     height: 146px;
     background-color: #a7e9af;
+    margin: 17px;
     border: 1px solid #99cea8;
     border-radius: 5px;
     display: flex;
@@ -40,4 +43,21 @@ body {
 
 .carta img {
     width: 100px;
+}
+
+/*Todos os estilos serão feitos por aqui*/
+@media (max-width: 736px) {
+        
+    .titulo h1 {
+        font-size:36px;
+    }
+    
+    .tabuleiro {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .carta {
+        margin: 17px 0;
+    }
 }
