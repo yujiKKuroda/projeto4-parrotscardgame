@@ -70,10 +70,6 @@ body {
     transform: rotateY(180deg);
 }
 
-.escondido {
-    display: none;
-}
-
 .desligado {
     pointer-events: none;
 }
