@@ -1,6 +1,15 @@
 let numCartas = 0;
 let ePar = false;
 let baralho = [];
+let cartasViradas = 0;
+let contJogada = 0;
+let imagens = ["img/bobrossparrot.gif", "img/explodyparrot.gif", "img/fiestaparrot.gif", "img/metalparrot.gif", "img/revertitparrot.gif", "img/tripletsparrot.gif", "img/unicorn.gif"];
+let cartaAnterior = "0";
+let paresVirados = 0;
+
+function comparador() { 
+	return Math.random() - 0.5; 
+}
 
 function iniciar() {
     let metade = numCartas / 2;
@@ -32,19 +41,43 @@ function colocarCartas(tabuleiroCima, tabuleiroBaixo, inicio, fim) {
     tabuleiroCima.innerHTML = "";
     tabuleiroBaixo.innerHTML = "";
     for (let i = inicio; i < fim; i++) {
-        tabuleiroCima.innerHTML += `<li class="carta num${baralho[i]}" onclick="virar()"><img src="img/front.png"></li>`;
+        tabuleiroCima.innerHTML += `<li class="carta ${baralho[i]}" onclick="virar(this)"><img src="img/front.png"></li>`;
         i++;
-        tabuleiroBaixo.innerHTML += `<li class="carta num${baralho[i]}" onclick="virar()"><img src="img/front.png"></li>`;
+        tabuleiroBaixo.innerHTML += `<li class="carta ${baralho[i]}" onclick="virar(this)"><img src="img/front.png"></li>`;
     }
 }
 
-function comparador() { 
-	return Math.random() - 0.5; 
-}
-
 function virar(carta) {
-    alert("Periquito!");
+    if (carta.classList.contains("virada") === false) {
+        carta.classList.add("virada");
+        if (cartaAnterior === "0") {
+            cartaAnterior = carta;
+        }
+        cartasViradas++;
+        contJogada++;
+    }
+    if (cartasViradas === 2) {
+        setTimeout(() => {comparar(carta)}, 1000);
+    }
 }
 
+function comparar(carta) {
+    if (carta.classList.value !== cartaAnterior.classList.value) {
+        carta.classList.remove("virada");
+        cartaAnterior.classList.remove("virada");
+    } else {
+        paresVirados++;
+        if (paresVirados === numCartas / 2) {
+            fimDeJogo();
+        }
+    }
+    cartasViradas = 0;
+    cartaAnterior = "0";
+}
+
+function fimDeJogo() {
+    alert(`Você ganhou em ${contJogada} jogadas!`);
+}
+
+imagens.sort(comparador);
 iniciar();
-console.log(baralho);

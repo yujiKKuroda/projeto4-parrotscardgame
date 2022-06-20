@@ -39,6 +39,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
+    transition: transform .5s;
 }
 
 .carta img {
@@ -47,6 +48,14 @@ body {
 
 .carta:hover {
     cursor: pointer;
+}
+
+.virada {
+    transform: rotateY(180deg);
+}
+
+.escondido {
+    display: none;
 }
 
 /*Todos os estilos serão feitos por aqui*/
