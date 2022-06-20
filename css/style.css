@@ -4,7 +4,7 @@
 
 body {
     width: 100%;
-    background-color: #e5e5e5;
+    background-color: #eef9bf;
     flex-direction: column;
 }
 
@@ -43,6 +43,10 @@ body {
 
 .carta img {
     width: 100px;
+}
+
+.carta:hover {
+    cursor: pointer;
 }
 
 /*Todos os estilos serão feitos por aqui*/
