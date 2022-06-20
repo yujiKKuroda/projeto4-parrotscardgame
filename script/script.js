@@ -42,9 +42,29 @@ function colocarCartas(tabuleiroCima, tabuleiroBaixo, inicio, fim) {
     tabuleiroCima.innerHTML = "";
     tabuleiroBaixo.innerHTML = "";
     for (let i = inicio; i < fim; i++) {
-        tabuleiroCima.innerHTML += `<li class="carta ${baralho[i]}" onclick="virar(this)"><img src="img/front.png"></li>`;
+        tabuleiroCima.innerHTML += 
+        `<div class="cena ${baralho[i]}" onclick="virar(this)">
+            <div class="carta">
+                <div class="frente">
+                    <img src="img/front.png">
+                </div>
+                <div class="verso">
+                    <img src="${imagens[baralho[i]]}">
+                </div>
+            </div>
+        </div>`;
         i++;
-        tabuleiroBaixo.innerHTML += `<li class="carta ${baralho[i]}" onclick="virar(this)"><img src="img/front.png"></li>`;
+        tabuleiroBaixo.innerHTML += 
+        `<div class="cena ${baralho[i]}" onclick="virar(this)">
+            <div class="carta">
+                <div class="frente">
+                    <img src="img/front.png">
+                </div>
+                <div class="verso">
+                    <img src="${imagens[baralho[i]]}">
+                </div>
+            </div>
+        </div>`;
     }
 }
 
