@@ -58,6 +58,10 @@ body {
     display: none;
 }
 
+.desligado {
+    pointer-events: none;
+  }
+
 /*Todos os estilos serão feitos por aqui*/
 @media (max-width: 736px) {
         

@@ -3,9 +3,10 @@ let ePar = false;
 let baralho = [];
 let cartasViradas = 0;
 let contJogada = 0;
-let imagens = ["img/bobrossparrot.gif", "img/explodyparrot.gif", "img/fiestaparrot.gif", "img/metalparrot.gif", "img/revertitparrot.gif", "img/tripletsparrot.gif", "img/unicorn.gif"];
+let imagens = ["img/bobrossparrot.gif", "img/explodyparrot.gif", "img/fiestaparrot.gif", "img/metalparrot.gif", "img/revertitparrot.gif", "img/tripletsparrot.gif", "img/unicornparrot.gif"];
 let cartaAnterior = "0";
 let paresVirados = 0;
+const body = document.querySelector("body");
 
 function comparador() { 
 	return Math.random() - 0.5; 
@@ -57,6 +58,10 @@ function virar(carta) {
         contJogada++;
     }
     if (cartasViradas === 2) {
+        if (!body.classList.contains("desligado")) {
+            body.classList.add("desligado");
+            setTimeout(function() {body.classList.remove("desligado");}, 1000);
+        }
         setTimeout(() => {comparar(carta)}, 1000);
     }
 }
